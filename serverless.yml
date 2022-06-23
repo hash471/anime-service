@@ -34,7 +34,7 @@ functions:
     description: Retrieve Anime by name
     events:
       - http:
-          path: anime/{name}
+          path: anime/{anime_name}
           method: get
           cors: true
   updateAnime:
