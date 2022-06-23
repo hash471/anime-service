@@ -42,7 +42,7 @@ functions:
     description: Update Anime Details
     events:
       - http:
-          path: anime/{id}
+          path: anime/{key}
           method: patch
           cors: true
   deleteAnime:

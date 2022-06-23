@@ -169,13 +169,13 @@ module.exports.update = (event, context, callback) => {
             return;
         } else {
             //Find the anime to be updated
-            const anime = animes.find((anime) => anime.anime_id === event.pathParameters.id);
+            const anime = animes.find((anime) => anime.anime_id === event.pathParameters.key);
     
             if(!anime) {
                 callback(null, {
                     statusCode: 400,
                     body: JSON.stringify({
-                      message: `Not found for id : ${event.pathParameters.id}`
+                      message: `Not found for id : ${event.pathParameters.key}`
                     })
                   });
                 return;
@@ -199,7 +199,7 @@ module.exports.update = (event, context, callback) => {
     
                 callback(null, {
                     statusCode: 200,
-                    body: JSON.stringify({message:`Successfully Updated details for ${event.pathParameters.id}`})
+                    body: JSON.stringify({message:`Successfully Updated details for ${event.pathParameters.key}`})
                 });
                 return;
             }
@@ -208,7 +208,7 @@ module.exports.update = (event, context, callback) => {
         console.log(e);
         callback(null, {
             statusCode: 400,
-            body: JSON.stringify({message:`Bad Request for ${event.pathParameters.id} : ${e}`})
+            body: JSON.stringify({message:`Bad Request for ${event.pathParameters.key} : ${e}`})
         });
         return;
     }
