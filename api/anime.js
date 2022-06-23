@@ -34,7 +34,7 @@ module.exports.getAll = (event, context, callback) => {
         .catch(err => {
             console.log(err);
             callback(null, {
-                statusCode: err.response ? err.respose.status ? err.response.status : 400 : 400,
+                statusCode: err.response ? err.response.status ? err.response.status : 400 : 400,
                 body: JSON.stringify({
                     message: `Unable to retreive the list : ${err}`
                 })
@@ -72,7 +72,7 @@ module.exports.getByName = (event, context, callback) => {
         .catch(err => {
             console.log(err);
             callback(null, {
-                statusCode: err.response ? err.respose.status ? err.response.status : 400 : 400,
+                statusCode: err.response ? err.response.status ? err.response.status : 400 : 400,
                 body: JSON.stringify({
                     message: `Unable to retreive for ${event.pathParameters.name} : ${err}`
                 })
