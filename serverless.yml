@@ -4,9 +4,9 @@ service: anime-service
 
 plugins:
   - serverless-offline
- 
+
 frameworkVersion: "3"
- 
+
 provider:
   name: aws
   runtime: nodejs14.x
@@ -17,17 +17,17 @@ functions:
     memorySize: 128
     description: Submit Anime information and stores data.
     events:
-      - http: 
+      - http:
           path: animes
           method: post
           cors: true
   getAllAnime:
     handler: api/anime.getAll
-    description: Retrieve All Anime 
+    description: Retrieve All Anime
     events:
       - http:
           path: animes
-          method: get          
+          method: get         
           cors: true
   getAnime:
     handler: api/anime.getByName
@@ -50,6 +50,6 @@ functions:
     description: Delete Anime Details
     events:
         - http:
-            path: anime/{id}
+            path: anime/{anime_id}
             method: delete
-            cors: true        
+            cors: true
