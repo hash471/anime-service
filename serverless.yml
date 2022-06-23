@@ -1,6 +1,6 @@
 org: harsha471
-app: anime-service
-service: anime-service
+app: anime-app
+service: anime-app
 
 plugins:
   - serverless-offline
