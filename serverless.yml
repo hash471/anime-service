@@ -1,0 +1,55 @@
+org: harsha471
+app: anime-service
+service: anime-service
+
+plugins:
+  - serverless-offline
+ 
+frameworkVersion: "3"
+ 
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  animeSubmission:
+    handler: api/anime.submit
+    memorySize: 128
+    description: Submit Anime information and stores data.
+    events:
+      - http: 
+          path: animes
+          method: post
+          cors: true
+  getAllAnime:
+    handler: api/anime.getAll
+    description: Retrieve All Anime 
+    events:
+      - http:
+          path: animes
+          method: get          
+          cors: true
+  getAnime:
+    handler: api/anime.getByName
+    description: Retrieve Anime by name
+    events:
+      - http:
+          path: anime/{name}
+          method: get
+          cors: true
+  updateAnime:
+    handler: api/anime.update
+    description: Update Anime Details
+    events:
+      - http:
+          path: anime/{id}
+          method: patch
+          cors: true
+  deleteAnime:
+    handler: api/anime.delete
+    description: Delete Anime Details
+    events:
+        - http:
+            path: anime/{id}
+            method: delete
+            cors: true        
