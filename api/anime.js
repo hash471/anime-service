@@ -218,17 +218,17 @@ module.exports.update = (event, context, callback) => {
 
 module.exports.delete = (event, context, callback) => {
     try {
-        console.log(`Anime with id ${event.pathParameters.anime_id} has been deleted`);        
+        console.log(`Anime with id ${event.pathParameters.key} has been deleted`);        
         //Filter out the Anime fromid
-        animes = animes.filter((anime) => anime.anime_id !== event.pathParameters.anime_id);
+        animes = animes.filter((anime) => anime.anime_id !== event.pathParameters.key);
         callback(null, {
             statusCode: 200,
-            body: JSON.stringify({message:`Successfully deleted details for ${event.pathParameters.anime_id}`})
+            body: JSON.stringify({message:`Successfully deleted details for ${event.pathParameters.key}`})
         });
     } catch(e) {
         callback(null, {
             statusCode: 400,
-            body: JSON.stringify({message:`Bad Request for ${event.pathParameters.anime_id} : ${e}`})
+            body: JSON.stringify({message:`Bad Request for ${event.pathParameters.key} : ${e}`})
         });
         return;
     }

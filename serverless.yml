@@ -50,6 +50,6 @@ functions:
     description: Delete Anime Details
     events:
         - http:
-            path: anime/delete/{anime_id}
+            path: anime/delete/{key}
             method: delete
             cors: true
