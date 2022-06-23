@@ -57,13 +57,13 @@ module.exports.getByName = (event, context, callback) => {
     try { 
         const config = {
             method: 'get',
-            url: `${externalUrl}/${event.pathParameters.anime_name}`,
+            url: `${externalUrl}/${event.pathParameters.name}`,
             headers: {}
         };
         
         axios(config)
         .then(res => {
-            console.log(`Successfully Retreived information for ${event.pathParameters.anime_name}`);
+            console.log(`Successfully Retreived information for ${event.pathParameters.name}`);
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(res.data)
@@ -74,7 +74,7 @@ module.exports.getByName = (event, context, callback) => {
             callback(null, {
                 statusCode: err.response ? err.respose.status ? err.response.status : 400 : 400,
                 body: JSON.stringify({
-                    message: `Unable to retreive for ${event.pathParameters.anime_name} : ${err}`
+                    message: `Unable to retreive for ${event.pathParameters.name} : ${err}`
                 })
             })
         });   

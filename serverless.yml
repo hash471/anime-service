@@ -27,14 +27,14 @@ functions:
     events:
       - http:
           path: animes
-          method: get         
+          method: get       
           cors: true
   getAnime:
     handler: api/anime.getByName
     description: Retrieve Anime by name
     events:
       - http:
-          path: anime/{anime_name}
+          path: anime/get/{name}
           method: get
           cors: true
   updateAnime:
@@ -42,7 +42,7 @@ functions:
     description: Update Anime Details
     events:
       - http:
-          path: anime/{key}
+          path: anime/update/{key}
           method: patch
           cors: true
   deleteAnime:
@@ -50,6 +50,6 @@ functions:
     description: Delete Anime Details
     events:
         - http:
-            path: anime/{anime_id}
+            path: anime/delete/{anime_id}
             method: delete
             cors: true
